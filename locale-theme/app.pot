@@ -1,0 +1,5 @@
+msgid "should be a Dutch number consisting of 10 digits"
+msgstr ""
+
+msgid "should only contain digits"
+msgstr ""

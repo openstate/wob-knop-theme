@@ -25,4 +25,6 @@ Rails.configuration.to_prepare do
       false
     end
   end
+
+  require_relative './model_patches/user'
 end

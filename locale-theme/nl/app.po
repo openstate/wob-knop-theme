@@ -1,0 +1,5 @@
+msgid "should be a Dutch number consisting of 10 digits"
+msgstr "moet een Nederlands telefoonnummer bevatten bestaande uit 10 getallen"
+
+msgid "should only contain digits"
+msgstr "mag alleen getallen bevatten"

@@ -5,3 +5,8 @@
 #
 # msgid "Make and browse Freedom of Information (FOI) requests"
 # msgstr "Make and browse Right to Know (RTI) requests"
+msgid "should be a Dutch number consisting of 10 digits"
+msgstr "should be a Dutch number consisting of 10 digits"
+
+msgid "should only contain digits"
+msgstr "should only contain digits"
