@@ -1,0 +1,26 @@
+<% @title = _('Change your telephone number used on {{site_name}}',
+              :site_name => site_name) %>
+
+<% raise _('internal error') if not @user %>
+
+<div id="change_telephone_number">
+  <%= form_tag({:action => "change_telephone_number"}, {:id => "change_telephone_number_form"}) do %>
+    <%= foi_error_messages_for :change_telephone_number %>
+
+    <div class="form_note">
+      <h1><% _('Change your telephone number used on {{site_name}}',
+               :site_name => site_name) %></h1>
+    </div>
+
+    <label class="form_label" for="change_telephone_number_telephone_number">
+      <%= _('Telephone number:')%></label>
+    <%= text_field 'change_telephone_number', 'telephone_number',
+                   { :value => @user.telephone_number, :size => 20 } %>
+    </p>
+
+    <div class="form_button">
+      <%= hidden_field_tag 'submitted_telephone_number_do', 1 %>
+      <%= submit_tag _("Change telephone number on {{site_name}}", :site_name => site_name) %>
+    </div>
+  <% end %>
+</div>

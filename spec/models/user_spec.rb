@@ -64,6 +64,12 @@ describe User do
       expect(user.telephone_number).to eql("+31612345678")
     end
 
+    it 'allows emptying telephone number' do
+      user = FactoryBot.build(:user, telephone_number: "")
+      expect(user.valid?).to be true
+      expect(user.telephone_number).to eql("")
+    end
+
     it 'does not accept 9 digits' do
       user = FactoryBot.build(:user, telephone_number: '061234567')
       expect(user.valid?).to be false
