@@ -23,7 +23,17 @@ UserController.class_eval do
     end
 
     @user.save!
-    flash[:notice] = _('You have now changed your telephone number used on {{site_name}}', :site_name => site_name)
+    notice = if @user.telephone_number.blank?
+      _('You have removed your telephone number used on {{site_name}}', :site_name => site_name)
+    else
+      _('You have changed your telephone number used on {{site_name}}', :site_name => site_name)
+    end
+    flash[:notice] = notice
     redirect_to user_url(@user)
+  end
+
+  alias_method :unaliased_user_params, :user_params
+  def user_params(key = :user)
+    params.require(key).permit(:name, :email, :password, :password_confirmation, :telephone_number)
   end
 end

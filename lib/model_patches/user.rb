@@ -4,6 +4,7 @@ User.class_eval do
     unless: -> { telephone_number.blank? }
   validates :telephone_number, format: { with: /\A\+31[0-9]+\z/, message: _("should only contain digits")},
     unless: -> { telephone_number.blank? }
+  after_save :add_telephone_number_censor_rule
 
   def telephone_number_provided?
     !telephone_number.blank?
@@ -11,7 +12,7 @@ User.class_eval do
 
   def display_telephone_number
     return "" if !telephone_number_provided?
-    telephone_number.sub(/^+31/, '0')
+    telephone_number.sub(/^\+31/, '0')
   end
 
   private
@@ -33,6 +34,22 @@ User.class_eval do
 
     # Add +31
     self.telephone_number = "+31#{sanitized}"
+  end
+
+  def add_telephone_number_censor_rule
+    return if !telephone_number_provided?
+
+    regexp = "#{telephone_number}|#{display_telephone_number}".gsub("+", "\\\\+")
+    return if censor_rules.where(["text = ?", regexp]).exists?
+
+    CensorRule.create!(
+      text: regexp,
+      replacement: _("[removed]"),
+      last_edit_editor: THEME_NAME,
+      last_edit_comment: _("Created automatically after saving user"),
+      regexp: true,
+      censorable: self
+    )
   end
 
 end

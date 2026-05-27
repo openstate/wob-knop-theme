@@ -20,7 +20,7 @@ describe User do
     expect(user_without.telephone_number).to be_nil
   end
 
-  describe 'validating format' do
+  context 'validating format' do
     def test_error_message(user, expected_message)
       expect(user.valid?).to be false
       errors = user.errors[:telephone_number]
@@ -99,6 +99,38 @@ describe User do
     it 'does not allow symbols' do
       user = FactoryBot.build(:user, telephone_number: '061234567@')
       test_error_message(user, 'should only contain digits')
+    end
+
+  end
+
+  context "censor rules" do
+
+    it "creates a rule after saving" do
+      user = FactoryBot.build(:user, telephone_number: "0612345678")
+      user.save!
+      expect(user.censor_rules.size).to eql(1)
+
+      cr = user.censor_rules.first
+      expect(cr.text).to eql("\\+31612345678|0612345678")
+
+      # Double check this censor rule does what it should do
+      expect(cr.apply_to_text("Is 0612345678 REDACTED?")).to eql("Is [removed] REDACTED?")
+      expect(cr.apply_to_text("Is +31612345678 REDACTED?")).to eql("Is [removed] REDACTED?")
+      expect(cr.apply_to_text("Is +31687654321 REDACTED?")).to eql("Is +31687654321 REDACTED?")
+    end
+
+    it "creates only one rule for each number" do
+      user = FactoryBot.build(:user, telephone_number: "0612345678")
+      user.save!
+      expect(user.censor_rules.size).to eql(1)
+
+      user.name = SecureRandom.hex(5)
+      user.save!
+      expect(user.censor_rules.size).to eql(1)
+
+      user.telephone_number = "+31611119999"
+      user.save!
+      expect(user.censor_rules.size).to eql(2)
     end
 
   end
