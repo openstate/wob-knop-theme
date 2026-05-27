@@ -1,7 +1,13 @@
+msgid "[removed]"
+msgstr ""
+
 msgid "Change telephone number on {{site_name}}"
 msgstr ""
 
 msgid "Change your telephone number used on {{site_name}}"
+msgstr ""
+
+msgid "Created automatically after saving user"
 msgstr ""
 
 msgid "should be a Dutch number consisting of 10 digits"
@@ -19,5 +25,8 @@ msgstr ""
 msgid "To change your telephone number used on {{site_name}}"
 msgstr ""
 
-msgid "You have now changed your telephone number used on {{site_name}}"
+msgid "You have changed your telephone number used on {{site_name}}"
+msgstr ""
+
+msgid "You have removed your telephone number used on {{site_name}}"
 msgstr ""

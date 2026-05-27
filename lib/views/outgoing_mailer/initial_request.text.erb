@@ -3,7 +3,12 @@
 -------------------------------------------------------------------
 
 <%= raw @outgoing_message.body.strip %>
+<% if @outgoing_message.info_request.user&.telephone_number_provided? %>
 
+Telefoonnummer aanvrager: <%= @outgoing_message.info_request.user.display_telephone_number %>
+(door het opgeven van het telefoonnummer geeft de aanvrager toestemming telefonisch benaderd te worden)
+
+<% end %>
 -------------------------------------------------------------------
 
 <%= _('Please use this email address for all replies to this request:')%>

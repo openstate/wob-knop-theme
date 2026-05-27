@@ -1,6 +1,7 @@
 User.class_eval do
   before_validation :sanitize_telephone_number
   validate :telephone_number_validations
+  after_save :add_telephone_number_censor_rule
 
   def telephone_number_provided?
     !telephone_number.blank?
@@ -8,7 +9,7 @@ User.class_eval do
 
   def display_telephone_number
     return "" if !telephone_number_provided?
-    telephone_number.sub(/^+31/, '0')
+    telephone_number.sub(/^\+31/, '0')
   end
 
   private
@@ -44,6 +45,22 @@ User.class_eval do
       errors.add(:telephone_number, _("should only contain digits"))
       return
     end
+  end
+
+  def add_telephone_number_censor_rule
+    return if !telephone_number_provided?
+
+    regexp = "#{telephone_number}|#{display_telephone_number}".gsub("+", "\\\\+")
+    return if censor_rules.where(["text = ?", regexp]).exists?
+
+    CensorRule.create!(
+      user_id: id,
+      text: regexp,
+      replacement: _("[removed]"),
+      last_edit_editor: THEME_NAME,
+      last_edit_comment: _("Created automatically after saving user"),
+      regexp: true
+    )
   end
 
 end
