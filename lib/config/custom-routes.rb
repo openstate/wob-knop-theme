@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'help/wettelijk-kader' => 'help#legal_framework',
       as: :help_legal_framework
 
+  get 'help/waarom_telefoonnummer_meesturen' => 'help#why_provide_telephone_number',
+      as: :help_why_provide_telephone_number
+
   scope '/profile' do
     match '/change_telephone_number' => 'user#change_telephone_number',
           :as => :change_telephone_number,

@@ -18,22 +18,6 @@ Rails.configuration.to_prepare do
   #   end
   # end
 
-  HelpController.class_eval do
-    def faqs
-    end
-
-    def step_by_step
-    end
-
-    def after_your_request
-    end
-
-    def objections_and_appeals
-    end
-
-    def legal_framework
-    end
-  end
-
+  require_relative './controller_patches/help_controller'
   require_relative './controller_patches/user_controller'
 end

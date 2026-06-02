@@ -1,0 +1,5 @@
+<%# locals: (last_tabindex:) %>
+<p>
+  <label class="form_label" for="user_signup_telephone_number"><%= _('Telephone number:') %></label>
+  <%= text_field 'user_signup', 'telephone_number', { :size => 14, :tabindex => (last_tabindex+10) } %>
+</p>

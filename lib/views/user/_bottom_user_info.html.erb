@@ -1,0 +1,10 @@
+<h2>Contactgegevens</h2>
+<% if @display_user.telephone_number_provided? %>
+<p>Telefoonnummer: <%= @display_user.display_telephone_number %></p>
+<p><%= _("You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below.") %></p>
+<p><%= link_to "Wijzig of verwijder je telefoonnummer", change_telephone_number_path %></p>
+<% else %>
+<p><%= _("If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}",
+  link: link_to(_("Why provide telephone number"), help_why_provide_telephone_number_path, target: '_blank')) %></p>
+<p><%= link_to "Telefoonnummer toevoegen", change_telephone_number_path %></p>
+<% end %>

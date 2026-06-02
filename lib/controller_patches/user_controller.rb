@@ -31,4 +31,9 @@ UserController.class_eval do
     flash[:notice] = notice
     redirect_to user_url(@user)
   end
+
+  alias_method :unaliased_user_params, :user_params
+  def user_params(key = :user)
+    params.require(key).permit(:name, :email, :password, :password_confirmation, :telephone_number)
+  end
 end

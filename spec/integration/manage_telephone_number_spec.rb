@@ -8,7 +8,7 @@ describe 'Managing telephone number' do
     using_session(login(user)) do
       visit change_telephone_number_path
       fill_in "Telephone number:", with: "0644448888"
-      click_button "Change telephone number on #{AlaveteliConfiguration.site_name}"
+      click_button "Save"
       expect(page).to have_content("You have changed your telephone number used on #{AlaveteliConfiguration.site_name}")
 
       visit change_telephone_number_path
@@ -20,7 +20,7 @@ describe 'Managing telephone number' do
     using_session(login(user)) do
       visit change_telephone_number_path
       fill_in "Telephone number:", with: ""
-      click_button "Change telephone number on #{AlaveteliConfiguration.site_name}"
+      click_button "Save"
       expect(page).to have_content("You have removed your telephone number used on #{AlaveteliConfiguration.site_name}")
 
       visit change_telephone_number_path

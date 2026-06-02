@@ -8,14 +8,17 @@
 msgid "[removed]"
 msgstr "[removed]"
 
-msgid "Change telephone number on {{site_name}}"
-msgstr "Change telephone number on {{site_name}}"
-
 msgid "Change your telephone number used on {{site_name}}"
 msgstr "Change your telephone number used on {{site_name}}"
 
 msgid "Created automatically after saving user"
 msgstr "Created automatically after saving user"
+
+msgid "If you have provided your telephone number on your profile page, it will be included in the communication with the authority below {{your_communication}}. For more information see: {{link}}"
+msgstr "If you have provided your telephone number on your profile page, it will be included in the communication with the authority below {{your_communication}}. For more information see: {{link}}"
+
+msgid "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
+msgstr "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
 
 msgid "should be a Dutch number consisting of 10 digits"
 msgstr "should be a Dutch number consisting of 10 digits"
@@ -32,8 +35,20 @@ msgstr "Then you can change your telephone number used on {{site_name}}"
 msgid "To change your telephone number used on {{site_name}}"
 msgstr "To change your telephone number used on {{site_name}}"
 
+msgid "Why provide telephone number"
+msgstr "Why provide telephone number"
+
 msgid "You have changed your telephone number used on {{site_name}}"
 msgstr "You have changed your telephone number used on {{site_name}}"
 
+msgid "You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below."
+msgstr "You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below."
+
 msgid "You have removed your telephone number used on {{site_name}}"
 msgstr "You have removed your telephone number used on {{site_name}}"
+
+msgid "your message"
+msgstr "your message"
+
+msgid "your request"
+msgstr "your request"

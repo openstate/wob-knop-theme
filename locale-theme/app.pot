@@ -1,13 +1,16 @@
 msgid "[removed]"
 msgstr ""
 
-msgid "Change telephone number on {{site_name}}"
-msgstr ""
-
 msgid "Change your telephone number used on {{site_name}}"
 msgstr ""
 
 msgid "Created automatically after saving user"
+msgstr ""
+
+msgid "If you have provided your telephone number on your profile page, it will be included in the communication with the authority below {{your_communication}}. For more information see: {{link}}"
+msgstr ""
+
+msgid "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
 msgstr ""
 
 msgid "should be a Dutch number consisting of 10 digits"
@@ -25,8 +28,20 @@ msgstr ""
 msgid "To change your telephone number used on {{site_name}}"
 msgstr ""
 
+msgid "Why provide telephone number"
+msgstr ""
+
 msgid "You have changed your telephone number used on {{site_name}}"
 msgstr ""
 
+msgid "You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below."
+msgstr ""
+
 msgid "You have removed your telephone number used on {{site_name}}"
+msgstr ""
+
+msgid "your message"
+msgstr ""
+
+msgid "your request"
 msgstr ""

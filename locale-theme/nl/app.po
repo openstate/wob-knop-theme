@@ -1,14 +1,17 @@
 msgid "[removed]"
 msgstr "[verwijderd]"
 
-msgid "Change telephone number on {{site_name}}"
-msgstr "Wijzig telefoonnummer op {{site_name}}"
-
 msgid "Change your telephone number used on {{site_name}}"
 msgstr "Wijzig het telefoonnummer dat je gebruikt op {{site_name}}"
 
 msgid "Created automatically after saving user"
 msgstr "Automatisch aangemaakt na opslaan gebruiker"
+
+msgid "If you have provided your telephone number on your profile page, it will be included in the communication with the authority below {{your_communication}}. For more information see: {{link}}"
+msgstr "Als je op je profielpagina je telefoonnummer hebt ingevuld, wordt deze in de communicatie naar de overheidsinstantie onderaan {{your_communication}} zichtbaar. Zie voor meer informatie: {{link}}"
+
+msgid "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
+msgstr "Als je je telefoonnummer opgeeft, zal deze worden meegestuurd onderaan je Woo-verzoek en berichten die je stuurt aan een overheidsinstantie. Hierdoor kunnen zij contact met je opnemen voor overleg. Zie voor meer informatie: {{link}}"
 
 msgid "should be a Dutch number consisting of 10 digits"
 msgstr "moet een Nederlands telefoonnummer bevatten bestaande uit 10 getallen"
@@ -25,8 +28,20 @@ msgstr "Dan kun je het telefoonnummer dat je gebruikt op {{site_name}} wijzigen.
 msgid "To change your telephone number used on {{site_name}}"
 msgstr "Om het telefoonnummer te veranderen dat je gebruikt op {{site_name}}"
 
+msgid "Why provide telephone number"
+msgstr "Waarom telefoonnummer meesturen"
+
 msgid "You have changed your telephone number used on {{site_name}}"
 msgstr "Je hebt het telefoonnummer dat je gebruikt op {{site_name}} gewijzigd"
 
+msgid "You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below."
+msgstr "Je hebt je telefoonnummer opgegeven. Je telefoonnummer zal worden meegestuurd onderaan je Woo-verzoek en berichten die je stuurt aan een overheidsinstantie. Hierdoor kunnen zij contact met je opnemen voor overleg. Als je bij je volgende verzoeken je telefoonnummer niet meer wil meesturen, kun je ‘m hieronder verwijderen."
+
 msgid "You have removed your telephone number used on {{site_name}}"
 msgstr "Je hebt het telefoonnummer dat je gebruikt op {{site_name}} verwijderd"
+
+msgid "your message"
+msgstr "je bericht"
+
+msgid "your request"
+msgstr "je verzoek"
