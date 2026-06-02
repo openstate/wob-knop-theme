@@ -20,6 +20,9 @@ msgstr "If you have provided your telephone number on your profile page, it will
 msgid "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
 msgstr "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
 
+msgid "Providing your telephone number is not necessary for creating your account nor for sending a Woo request. Providing your telephone number can be done at a later stage if desired. For more information see: {{link}}"
+msgstr "Providing your telephone number is not necessary for creating your account nor for sending a Woo request. Providing your telephone number can be done at a later stage if desired. For more information see: {{link}}"
+
 msgid "should be a Dutch number consisting of 10 digits"
 msgstr "should be a Dutch number consisting of 10 digits"
 

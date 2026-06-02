@@ -13,6 +13,9 @@ msgstr "Als je op je profielpagina je telefoonnummer hebt ingevuld, wordt deze i
 msgid "If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}"
 msgstr "Als je je telefoonnummer opgeeft, zal deze worden meegestuurd onderaan je Woo-verzoek en berichten die je stuurt aan een overheidsinstantie. Hierdoor kunnen zij contact met je opnemen voor overleg. Zie voor meer informatie: {{link}}"
 
+msgid "Providing your telephone number is not necessary for creating your account nor for sending a Woo request. Providing your telephone number can be done at a later stage if desired. For more information see: {{link}}"
+msgstr "Het opgeven van je telefoonnummer is niet noodzakelijk voor het aanmaken van je account en ook niet voor het indienen van een Woo-verzoek. Het toevoegen van je telefoonnummer kan bovendien op een later moment. Zie voor meer informatie: {{link}}"
+
 msgid "should be a Dutch number consisting of 10 digits"
 msgstr "moet een Nederlands telefoonnummer bevatten bestaande uit 10 getallen"
 
