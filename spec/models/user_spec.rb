@@ -108,12 +108,7 @@ describe User do
       expect(user.censor_rules.size).to eql(1)
 
       cr = user.censor_rules.first
-      expect(cr.text).to eql("\\+31612345678|0612345678")
-
-      # Double check this censor rule does what it should do
-      expect(cr.apply_to_text("Is 0612345678 REDACTED?")).to eql("Is [removed] REDACTED?")
-      expect(cr.apply_to_text("Is +31612345678 REDACTED?")).to eql("Is [removed] REDACTED?")
-      expect(cr.apply_to_text("Is +31687654321 REDACTED?")).to eql("Is +31687654321 REDACTED?")
+      expect(cr.text).to eql("\\+[\\s\\-]*3[\\s\\-]*1[\\s\\-]*6[\\s\\-]*1[\\s\\-]*2[\\s\\-]*3[\\s\\-]*4[\\s\\-]*5[\\s\\-]*6[\\s\\-]*7[\\s\\-]*8|0[\\s\\-]*6[\\s\\-]*1[\\s\\-]*2[\\s\\-]*3[\\s\\-]*4[\\s\\-]*5[\\s\\-]*6[\\s\\-]*7[\\s\\-]*8")
     end
 
     it "creates only one rule for each number" do
@@ -130,6 +125,26 @@ describe User do
       expect(user.censor_rules.size).to eql(2)
     end
 
+    it "censors different represenations of telephone numbers" do
+      user = FactoryBot.build(:user, telephone_number: "0612345678")
+      user.save!
+      cr = user.censor_rules.first
+
+      expect(cr.apply_to_text("Is 0612345678 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is 06 1234 5678 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is 06-1234567-8 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is 06
+1234 56-78 redacted?")).to eql("Is [removed] redacted?")
+
+      expect(cr.apply_to_text("Is +31612345678 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is +316 1234 5678 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is +316-1234567-8 redacted?")).to eql("Is [removed] redacted?")
+      expect(cr.apply_to_text("Is +316
+1234 56-78 redacted?")).to eql("Is [removed] redacted?")
+
+      # Sanity check
+      expect(cr.apply_to_text("Is +31687654321 redacted?")).to eql("Is +31687654321 redacted?")
+    end
   end
 
 end

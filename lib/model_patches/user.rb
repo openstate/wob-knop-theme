@@ -50,7 +50,7 @@ User.class_eval do
   def add_telephone_number_censor_rule
     return if !telephone_number_provided?
 
-    regexp = "#{telephone_number}|#{display_telephone_number}".gsub("+", "\\\\+")
+    regexp = "#{regex_for_telephone_number(telephone_number)}|#{regex_for_telephone_number(display_telephone_number)}".gsub("+", "\\\\+")
     return if censor_rules.where(["text = ?", regexp]).exists?
 
     CensorRule.create!(
@@ -61,6 +61,12 @@ User.class_eval do
       last_edit_comment: _("Created automatically after saving user"),
       regexp: true
     )
+  end
+
+  # We want to redact all occurrences of this telephone number, also if inadvertently it is
+  # displayed with spaces, newlines or dashes.
+  def regex_for_telephone_number(number)
+    number.split('').join("[\\s\\-]*")
   end
 
 end
