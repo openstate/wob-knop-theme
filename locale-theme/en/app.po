@@ -8,6 +8,9 @@
 msgid "[removed]"
 msgstr "[removed]"
 
+msgid "But telephone numbers are automatically redacted. For more information see: {{link}}"
+msgstr "But telephone numbers are automatically redacted. For more information see: {{link}}"
+
 msgid "Change your telephone number used on {{site_name}}"
 msgstr "Change your telephone number used on {{site_name}}"
 
@@ -55,3 +58,6 @@ msgstr "your message"
 
 msgid "your request"
 msgstr "your request"
+
+msgid "Your telephone number will also be included based on your profile information but will be redacted for all visitors of the platform. Telephone numbers will also not appear in search engines. For more information see: {{link}}"
+msgstr "Your telephone number will also be included based on your profile information but will be redacted for all visitors of the platform. Telephone numbers will also not appear in search engines. For more information see: {{link}}"
