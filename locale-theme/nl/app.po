@@ -1,6 +1,9 @@
 msgid "[removed]"
 msgstr "[verwijderd]"
 
+msgid "But telephone numbers are automatically redacted. For more information see: {{link}}"
+msgstr "Maar, telefoonnummers worden automatisch afgeschermd. Zie voor meer informatie: {{link}}"
+
 msgid "Change your telephone number used on {{site_name}}"
 msgstr "Wijzig het telefoonnummer dat je gebruikt op {{site_name}}"
 
@@ -48,3 +51,6 @@ msgstr "je bericht"
 
 msgid "your request"
 msgstr "je verzoek"
+
+msgid "Your telephone number will also be included based on your profile information but will be redacted for all visitors of the platform. Telephone numbers will also not appear in search engines. For more information see: {{link}}"
+msgstr "Je telefoonnummer wordt ook ingevuld op basis van je profielinformatie maar deze wordt onzichtbaar gemaakt voor iedereen die het platform bezoekt. Telefoonnummers verschijnen ook niet in zoekmachines. Zie voor meer informatie: {{link}}"
