@@ -1,6 +1,9 @@
 User.class_eval do
   before_validation :sanitize_telephone_number
-  validate :telephone_number_validations
+  validates :telephone_number, length: { is: 12, wrong_length: _("should be a Dutch number consisting of 10 digits") },
+    unless: -> { telephone_number.blank? }
+  validates :telephone_number, format: { with: /\+31[0-9]{9}/, message: _("should only contain digits")},
+    unless: -> { telephone_number.blank? }
   after_save :add_telephone_number_censor_rule
 
   def telephone_number_provided?
@@ -31,20 +34,6 @@ User.class_eval do
 
     # Add +31
     self.telephone_number = "+31#{sanitized}"
-  end
-
-  def telephone_number_validations
-    return unless telephone_number_provided?
-
-    if telephone_number.length != 12
-      errors.add(:telephone_number, _("should be a Dutch number consisting of 10 digits"))
-      return
-    end
-
-    if telephone_number !~ /\+31[0-9]{9}/
-      errors.add(:telephone_number, _("should only contain digits"))
-      return
-    end
   end
 
   def add_telephone_number_censor_rule
