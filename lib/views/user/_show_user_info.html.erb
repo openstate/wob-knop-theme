@@ -1,0 +1,40 @@
+<% if (@is_you && @display_user.about_me) || @display_user.show_about_me? %>
+  <div class="user_about_me">
+    <%= image_tag "quote-marks.png", :class => "comment_quote" %>
+    <%= @display_user.get_about_me_for_html_display %>
+    <% if @is_you %>
+      (<%= link_to _("edit text about you"), edit_profile_about_me_path %>)
+    <% end %>
+  </div>
+<% end %>
+
+<% if @is_you && @display_user.active? %>
+  <p id="user_change_password_email" class="user_change_password_email">
+    <% if @display_user.profile_photo %>
+      <%= link_to _('Change profile photo'), set_profile_photo_path %> |
+    <% end %>
+    <%= link_to _('Change your password'), new_password_change_path %> |
+    <%= link_to _('Change your email'), signchangeemail_path %>
+    <% if AlaveteliConfiguration.enable_two_factor_auth %>
+    |
+      <% if @display_user.totp? %>
+        <%= link_to _('Two factor authentication settings'), one_time_password_path %>
+      <% elsif @display_user.hotp? %>
+        <%= link_to _('View your two factor authentication one time passcode'), one_time_password_path %>
+      <% else %>
+        <%= link_to _('Improve your account security'), one_time_password_path %>
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
+
+<h2>Contactgegevens</h2>
+<% if @display_user.telephone_number_provided? %>
+<p>Telefoonnummer: <%= @display_user.display_telephone_number %></p>
+<p><%= _("You have provided your telephone number. Your telephone number will be included below your Woo request and messages that you send to an authority. This will allow them to contact you for consultation. If you don't want your telephone number to be included in future requests, you can remove it below.") %></p>
+<p><%= link_to "Wijzig of verwijder je telefoonnummer", change_telephone_number_path %></p>
+<% else %>
+<p><%= _("If you provide your telephone number it will be included in your Woo request and messages sent to an authority. This will allow them to contact you for consultation. For more information see: {{link}}",
+  link: link_to(_("Why provide telephone number"), help_why_provide_telephone_number_path, target: '_blank')) %></p>
+<p><%= link_to "Telefoonnummer toevoegen", change_telephone_number_path %></p>
+<% end %>

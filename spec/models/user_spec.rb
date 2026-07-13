@@ -21,6 +21,12 @@ describe User do
   end
 
   context 'validating format' do
+    def test_error_message(user, expected_message)
+      expect(user.valid?).to be false
+      errors = user.errors[:telephone_number]
+      expect(errors.size).to eql(1)
+      expect(errors[0]).to eql(expected_message)
+    end
 
     it 'accepts correct telephone numbers' do
       user = FactoryBot.build(:user, telephone_number: "0612345678")
@@ -72,30 +78,27 @@ describe User do
 
     it 'does not accept 9 digits' do
       user = FactoryBot.build(:user, telephone_number: '061234567')
-      expect(user.valid?).to be false
-      expected_message = 'should be a Dutch number consisting of 10 digits'
-      expect(user.errors[:telephone_number][0]).to eql(expected_message)
+      test_error_message(user, 'should be a Dutch number consisting of 10 digits')
     end
 
     it 'does not accept 11 digits' do
       user = FactoryBot.build(:user, telephone_number: '06123456789')
-      expect(user.valid?).to be false
-      expected_message = 'should be a Dutch number consisting of 10 digits'
-      expect(user.errors[:telephone_number][0]).to eql(expected_message)
+      test_error_message(user, 'should be a Dutch number consisting of 10 digits')
+    end
+
+    it 'does not accept incomplete numbers' do
+      user = FactoryBot.build(:user, telephone_number: '06123')
+      test_error_message(user, 'should be a Dutch number consisting of 10 digits')
     end
 
     it 'does not allow letters' do
       user = FactoryBot.build(:user, telephone_number: '06L2345678')
-      expect(user.valid?).to be false
-      expected_message = 'should only contain digits'
-      expect(user.errors[:telephone_number][0]).to eql(expected_message)
+      test_error_message(user, 'should only contain digits')
     end
 
     it 'does not allow symbols' do
       user = FactoryBot.build(:user, telephone_number: '061234567@')
-      expect(user.valid?).to be false
-      expected_message = 'should only contain digits'
-      expect(user.errors[:telephone_number][0]).to eql(expected_message)
+      test_error_message(user, 'should only contain digits')
     end
 
   end
