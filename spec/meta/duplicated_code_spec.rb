@@ -28,7 +28,7 @@ describe 'Checking views and partials used by this Theme' do
     end
 
     it 'signals a change in the search view' do
-      compare_view_digest("#{path}search.html.erb", "48f301be2081ff83518ca3d828987882")
+      compare_view_digest("#{path}search.html.erb", "9d855cf6f48231cd69d317433adf3557")
     end
   end
 end

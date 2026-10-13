@@ -43,12 +43,12 @@ User.class_eval do
     return if censor_rules.where(["text = ?", regexp]).exists?
 
     CensorRule.create!(
-      user_id: id,
       text: regexp,
       replacement: _("[removed]"),
       last_edit_editor: THEME_NAME,
       last_edit_comment: _("Created automatically after saving user"),
-      regexp: true
+      regexp: true,
+      censorable: self
     )
   end
 
