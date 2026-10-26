@@ -32,6 +32,56 @@ describe 'Checking views and partials used by this Theme' do
     end
   end
 
+  describe 'in followups' do
+    def path
+      "#{Rails.root}/app/views/followups/"
+    end
+    
+    it 'signals a change in the preview view' do
+      compare_view_digest("#{path}preview.html.erb", "9528ddff73f7e8d73864cd165d49ffc3")
+    end
+
+    it 'signals a change in the _followup view' do
+      compare_view_digest("#{path}_followup.html.erb", "1ecb69ee0bf8a520f7ec496e4be3b465")
+    end
+
+    it 'signals a change in the _preview_notes view' do
+      compare_view_digest("#{path}_preview_notes.html.erb", "0f4a4e6f50d83efd7805a5c1131241d0")
+    end
+  end
+
+  describe 'in outgoing_mailer' do
+    def path
+      "#{Rails.root}/app/views/outgoing_mailer/"
+    end
+    
+    it 'signals a change in the followup view' do
+      compare_view_digest("#{path}followup.text.erb", "4900383ae1a4b6f162ee5a4a1cca7c38")
+    end
+
+    it 'signals a change in the initial_request view' do
+      compare_view_digest("#{path}initial_request.text.erb", "7a7e8b2a71b206d1a8d1a8c928b02570")
+    end
+  end
+
+  describe 'in request' do
+    def path
+      "#{Rails.root}/app/views/request/"
+    end
+
+    it 'signals a change in the _form view' do
+      compare_view_digest("#{path}_form.html.erb", "5637b61e75c68add11e727d8e22a6107")
+    end
+
+    it 'signals a change in the _preview_notes view' do
+      compare_view_digest("#{path}_preview_notes.html.erb", "d9441f1398b7d6d6101af5cc514f2011")
+    end
+
+    it 'signals a change in the preview view' do
+      compare_view_digest("#{path}preview.html.erb", "13288d2d20a13d38f37a461e06d49fa0")
+    end
+  end
+
   describe 'in user' do
     def path
       "#{Rails.root}/app/views/user/"

@@ -1,0 +1,17 @@
+<ul>
+  <li><%= _('Check you haven\'t included any <strong>personal information</strong>.') %></li>
+  <li><%= raw(_("Your name, request and any responses will appear in " \
+                "<strong>search engines</strong> " \
+                "(<a href=\"{{url}}\">details</a>).",
+                :url => help_privacy_path(:anchor => "public_request").html_safe)) %>
+  </li>
+  <li><%= _('<a href="{{url}}">Do you want to request private ' \
+              'information about yourself?</a>',
+            :url => help_requesting_path(:anchor => "data_protection").html_safe) %></li>
+  <li>Je naam wordt ingevuld op basis van je profielinformatie. Deze is ook zichtbaar voor iedereen
+    die het platform bezoekt en verschijnt in zoekmachines, evenals je Woo-verzoek en de
+    correspondentie tussen jou en de overheidsinstantie.</li>
+  <li>Dat is een van <%= link_to 'de redenen dat dit platform bestaat', help_about_path, target: '_blank' %>.</li>
+  <li><%= _("Your telephone number will also be included based on your profile information but will be redacted for all visitors of the platform. Telephone numbers will also not appear in search engines. For more information see: {{link}}",
+        link: link_to(_("Why provide telephone number"), help_why_provide_telephone_number_path, target: '_blank')) %></li>
+</ul>
