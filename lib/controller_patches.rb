@@ -34,4 +34,6 @@ Rails.configuration.to_prepare do
     def legal_framework
     end
   end
+
+  require_relative './controller_patches/user_controller'
 end

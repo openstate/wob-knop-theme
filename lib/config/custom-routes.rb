@@ -20,4 +20,11 @@ Rails.application.routes.draw do
 
   get 'help/wettelijk-kader' => 'help#legal_framework',
       as: :help_legal_framework
+
+  scope '/profile' do
+    match '/change_telephone_number' => 'user#change_telephone_number',
+          :as => :change_telephone_number,
+          :via => [:get, :post]
+  end
+
 end

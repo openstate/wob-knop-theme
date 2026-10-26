@@ -5,8 +5,26 @@
 #
 # msgid "Make and browse Freedom of Information (FOI) requests"
 # msgstr "Make and browse Right to Know (RTI) requests"
+msgid "Change telephone number on {{site_name}}"
+msgstr "Change telephone number on {{site_name}}"
+
+msgid "Change your telephone number used on {{site_name}}"
+msgstr "Change your telephone number used on {{site_name}}"
+
 msgid "should be a Dutch number consisting of 10 digits"
 msgstr "should be a Dutch number consisting of 10 digits"
 
 msgid "should only contain digits"
 msgstr "should only contain digits"
+
+msgid "Telephone number:"
+msgstr "Telephone number:"
+
+msgid "Then you can change your telephone number used on {{site_name}}"
+msgstr "Then you can change your telephone number used on {{site_name}}"
+
+msgid "To change your telephone number used on {{site_name}}"
+msgstr "To change your telephone number used on {{site_name}}"
+
+msgid "You have now changed your telephone number used on {{site_name}}"
+msgstr "You have now changed your telephone number used on {{site_name}}"
